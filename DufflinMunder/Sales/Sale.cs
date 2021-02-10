@@ -15,19 +15,19 @@ namespace DufflinMunder
         public int TimeFrameInMonths { get; set; }
 
 
-        public static void EnterASale()
-        {
-            Console.WriteLine("Which sales employee are you?");
+        //public static void EnterASale()
+        //{
+        //    Console.WriteLine("Which sales employee are you?");
 
-            for (var i = 0; i < Company.SalesEmployees.Count; i++)
-            {
-                Console.WriteLine($"{i + 1}. {Company.SalesEmployees[i].Name}");
-            }
+        //    for (var i = 0; i < Company.SalesEmployees.Count; i++)
+        //    {
+        //        Console.WriteLine($"{i + 1}. {Company.SalesEmployees[i].Name}");
+        //    }
 
-            int employeeSelection = Convert.ToInt32(Console.ReadLine());
+        //    int employeeSelection = Convert.ToInt32(Console.ReadLine());
 
-            Console.WriteLine($"Hi, {Company.SalesEmployees[employeeSelection - 1].Name}");
-        }
+        //    Console.WriteLine($"Hi, {Company.SalesEmployees[employeeSelection - 1].Name}");
+        //}
 
     }
 }
