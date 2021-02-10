@@ -4,7 +4,14 @@ using System.Text;
 
 namespace DufflinMunder.Employees
 {
-    class SalesEmployee
+    class SalesEmployee : Employee
     {
+        public List<Sale> AllSales { get; set; } = new List<Sale>();
+
+        public SalesEmployee(string name, string department)
+        {
+            Name = name;
+            Department = department;
+        }
     }
 }
