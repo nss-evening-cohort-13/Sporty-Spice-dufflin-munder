@@ -23,6 +23,10 @@ namespace DufflinMunder
             {
                 Console.WriteLine($"{i + 1}. {Company.SalesEmployees[i].Name}");
             }
+
+            int employeeSelection = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine($"Hi, {Company.SalesEmployees[employeeSelection - 1].Name}");
         }
 
     }
