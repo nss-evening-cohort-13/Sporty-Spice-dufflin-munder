@@ -24,7 +24,7 @@ namespace DufflinMunder
                     }
                 case 2:
                     {
-                        Console.WriteLine("You have selected 'generate a report'");
+                        Console.WriteLine("Which accountant you'd like to generate the report for?\n");
                         break;
                     }
                 case 3:
