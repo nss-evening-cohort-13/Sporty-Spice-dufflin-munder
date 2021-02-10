@@ -39,7 +39,7 @@ namespace DufflinMunder
                     }
                 case 5:
                     {
-                        Console.WriteLine("You have selected 'exit'");
+                        Environment.Exit(0);
                         break;
                     }
                 default:
