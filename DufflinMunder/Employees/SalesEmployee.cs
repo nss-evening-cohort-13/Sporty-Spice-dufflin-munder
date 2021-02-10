@@ -4,7 +4,10 @@ using System.Text;
 
 namespace DufflinMunder.Employees
 {
-    class SalesEmployee
+    class SalesEmployee : Employee
     {
+        public List<Sale> Sales { get; set; } = new List<Sale>();
+
+
     }
 }
