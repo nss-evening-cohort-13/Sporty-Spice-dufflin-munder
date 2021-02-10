@@ -19,7 +19,7 @@ namespace DufflinMunder
             {
                 case 1:
                     {
-                        Console.WriteLine("You have selected 'enter a sale'");
+                        Sale.EnterASale();
                         break;
                     }
                 case 2:

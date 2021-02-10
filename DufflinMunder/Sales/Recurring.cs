@@ -4,7 +4,10 @@ using System.Text;
 
 namespace DufflinMunder.Sales
 {
-    class Recurring
+    enum Recurring
     {
+        Monthly, 
+        Annually, 
+        OneTime,
     }
 }
