@@ -1,4 +1,5 @@
 ﻿using System;
+using DufflinMunder.Employees;
 
 namespace DufflinMunder
 {
@@ -24,7 +25,9 @@ namespace DufflinMunder
                     }
                 case 2:
                     {
-                        Console.WriteLine("Which accountant you'd like to generate the report for?\n");
+                        var accountants = Company.AccountantEmployees;
+                        Console.WriteLine("Which accountant you'd like to generate the report for?\n" +
+                            string.Join("\n", accountants));
                         break;
                     }
                 case 3:
