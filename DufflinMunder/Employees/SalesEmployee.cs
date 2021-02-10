@@ -8,5 +8,16 @@ namespace DufflinMunder.Employees
     {
         public List<Sale> AllSales { get; set; } = new List<Sale>();
 
+        public SalesEmployee(string name, string department)
+        {
+            Name = name;
+            Department = department;
+        }
+
+        public void AddSale(Sale currentSale)
+        {
+            AllSales.Add(currentSale);
+        }
+
     }
 }
