@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DufflinMunder.Employees
 {
-    class AccountantEmployee
+    class AccountantEmployee : Employee
     {
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using DufflinMunder.Employees;
 
 namespace DufflinMunder
 {
@@ -6,6 +7,7 @@ namespace DufflinMunder
     {
         static void Main(string[] args)
         {
+            var dufflinMunder = new Company();
             Console.WriteLine("Welcome to Dufflin/Munder Cardboard Co. Sales Portal!\n" +
                 "\n1. Enter Sales\n" +
                 "2. Generate Report for Accountant\n" +
@@ -29,7 +31,7 @@ namespace DufflinMunder
                     }
                 case 3:
                     {
-                        Console.WriteLine("You have selected 'add an employee'");
+                        Company.addNewEmployee();
                         break;
                     }
                 case 4:

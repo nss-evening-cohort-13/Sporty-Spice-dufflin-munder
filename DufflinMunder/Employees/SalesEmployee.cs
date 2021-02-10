@@ -6,8 +6,7 @@ namespace DufflinMunder.Employees
 {
     class SalesEmployee : Employee
     {
-        public List<Sale> Sales { get; set; } = new List<Sale>();
-
+        public List<Sale> AllSales { get; set; } = new List<Sale>();
 
     }
 }
