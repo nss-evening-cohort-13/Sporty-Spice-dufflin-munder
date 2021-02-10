@@ -6,8 +6,8 @@ namespace DufflinMunder.Sales
 {
     enum Recurring
     {
+        OneTime,
         Monthly, 
         Annually, 
-        OneTime,
     }
 }
