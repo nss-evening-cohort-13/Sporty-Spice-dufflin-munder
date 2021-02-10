@@ -13,5 +13,11 @@ namespace DufflinMunder.Employees
             Name = name;
             Department = department;
         }
+
+        public void AddSale(Sale currentSale)
+        {
+            AllSales.Add(currentSale);
+        }
+
     }
 }
