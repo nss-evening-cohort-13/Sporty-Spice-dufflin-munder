@@ -7,6 +7,7 @@ namespace DufflinMunder
     {
         static void Main(string[] args)
         {
+            var dufflinMunder = new Company();
             Console.WriteLine("Welcome to Dufflin/Munder Cardboard Co. Sales Portal!\n" +
                 "\n1. Enter Sales\n" +
                 "2. Generate Report for Accountant\n" +
@@ -20,7 +21,7 @@ namespace DufflinMunder
             {
                 case 1:
                     {
-                        Sale.EnterASale();
+                        Console.WriteLine("You have selected 'enter a sale'");
                         break;
                     }
                 case 2:
@@ -32,7 +33,7 @@ namespace DufflinMunder
                     }
                 case 3:
                     {
-                        Console.WriteLine("You have selected 'add an employee'");
+                        Company.addNewEmployee();
                         break;
                     }
                 case 4:
