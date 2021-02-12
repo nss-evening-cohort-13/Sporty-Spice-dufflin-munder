@@ -23,6 +23,8 @@ namespace DufflinMunder
             {
                 Console.WriteLine($"{salesEmployee.Name}, {salesEmployee.Department}");
             }
+
+            Program.BackToStart();
         }
 
     }

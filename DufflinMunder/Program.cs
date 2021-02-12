@@ -8,6 +8,27 @@ namespace DufflinMunder
         static void Main(string[] args)
         {
             var dufflinMunder = new Company();
+            Program.ShowMainMenu();
+        }
+
+        public static void BackToStart()
+        {
+            Console.Write("Do you want to return to the main menu? (y/n) ");
+            var response = Console.ReadLine().ToLower();
+
+            if (response == "y" || response == "yes")
+            {
+                Console.Clear();
+                Program.ShowMainMenu();
+            }
+            else if (response == "n" || response == "no")
+            {
+                Environment.Exit(0);
+            }
+        }
+
+        static void ShowMainMenu()
+        {
             Console.WriteLine("Welcome to Dufflin/Munder Cardboard Co. Sales Portal!\n" +
                 "\n1. Enter Sales\n" +
                 "2. Generate Report for Accountant\n" +
@@ -20,10 +41,8 @@ namespace DufflinMunder
             switch (menuSelection)
             {
                 case 1:
-                    {
-                        Sale.EnterASale();
-                        break;
-                    }
+                    Sale.EnterASale();
+                    break;
                 case 2:
                     {
                         var accountants = Company.AccountantEmployees;
@@ -52,27 +71,18 @@ namespace DufflinMunder
                         break;
                     }
                 case 3:
-                    {
-                        Company.addNewEmployee();
-                        break;
-                    }
+                    Company.addNewEmployee();
+                    break;
                 case 4:
-                    {
-                        Console.WriteLine("You have selected 'find a sale'");
-                        break;
-                    }
+                    Console.WriteLine("You have selected 'find a sale'");
+                    break;
                 case 5:
-                    {
-                        Environment.Exit(0);
-                        break;
-                    }
+                    Environment.Exit(0);
+                    break;
                 default:
-                    {
-                        Console.WriteLine("Please enter a number 1-5");
-                    }
+                    Console.WriteLine("Please enter a number 1-5");
                     break;
             }
-
         }
     }
 }
