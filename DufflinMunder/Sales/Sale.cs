@@ -91,6 +91,10 @@ namespace DufflinMunder
                 Console.WriteLine($"{currentSale.Client}");
             }
 
+            Console.WriteLine();
+
+            Program.BackToStart();
+
         }
         public static void FindASale(int clientId)
         {
