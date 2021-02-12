@@ -19,5 +19,27 @@ namespace DufflinMunder.Employees
             AllSales.Add(currentSale);
         }
 
+        public void PrintClients()
+        {
+            var clients = new HashSet<string>();
+            var c = 1;
+            AllSales.ForEach(sale =>
+            {
+                clients.Add(sale.Client);
+            });
+            foreach (var client in clients)
+            {
+                Console.Write($"\t\t{c}. {client}\n");
+                c++;
+            }
+        }
+
+        public double SumSales()
+        {
+            double sum = 0;
+            AllSales.ForEach(sale => sum += sale.SaleAmount);
+            return sum;
+        }
+
     }
 }
