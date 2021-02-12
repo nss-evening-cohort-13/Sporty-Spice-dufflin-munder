@@ -27,8 +27,28 @@ namespace DufflinMunder
                 case 2:
                     {
                         var accountants = Company.AccountantEmployees;
-                        Console.WriteLine("Which accountant you'd like to generate the report for?\n" +
-                            string.Join("\n", accountants));
+                        var salespeople = Company.SalesEmployees;
+                        Console.WriteLine("Which accountant you'd like to generate the report for?");
+                        accountants.ForEach(accountant => Console.WriteLine(accountant.Name));
+
+                        var answer = Console.ReadLine();
+                        if (answer == "Angela" || answer == "Oscar")
+                        {
+                            var s = 1;
+                            var c = 1;
+                            Console.WriteLine("Monthly Sales Report\n" +
+                                $"For: {answer}\n");
+                            salespeople.ForEach(salesperson =>
+                            {
+                                Console.WriteLine($"{s}. {salesperson.Name}\n" +
+                                    $"Clients:\n" +
+                                    $"{c}. ");
+                            });
+                        }
+                        else
+                        {
+                            Console.WriteLine("Please enter a valid accountant: Angela or Oscar");
+                        }
                         break;
                     }
                 case 3:

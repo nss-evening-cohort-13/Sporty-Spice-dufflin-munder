@@ -19,5 +19,12 @@ namespace DufflinMunder.Employees
             AllSales.Add(currentSale);
         }
 
+        public void PrintClients()
+        {
+            AllSales.ForEach(sale =>
+            {
+            });
+        }
+
     }
 }
