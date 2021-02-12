@@ -36,7 +36,8 @@ namespace DufflinMunder
                     }
                 case 4:
                     {
-                        Console.WriteLine("You have selected 'find a sale'");
+                        Console.Write("To find a sale, please enter the unique client id: ");
+                        var id = Console.ReadLine();
                         break;
                     }
                 case 5:

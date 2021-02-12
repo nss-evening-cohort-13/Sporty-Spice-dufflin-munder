@@ -92,6 +92,12 @@ namespace DufflinMunder
             }
 
         }
-
+        public static void FindASale(int clientId)
+        {
+            foreach (var employee in Company.SalesEmployees)
+            {
+                employee.AllSales.Find(sale => sale.ClientId == clientId);
+            }
+        }
     }
 }
