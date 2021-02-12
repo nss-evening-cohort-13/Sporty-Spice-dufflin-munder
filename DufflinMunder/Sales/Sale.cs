@@ -86,11 +86,6 @@ namespace DufflinMunder
 
             currentEmployee.AddSale(sale);
 
-            foreach (var currentSale in currentEmployee.AllSales)
-            {
-                Console.WriteLine($"{currentSale.Client}");
-            }
-
             Console.WriteLine();
 
             Program.BackToStart();

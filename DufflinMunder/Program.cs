@@ -48,26 +48,33 @@ namespace DufflinMunder
                         var accountants = Company.AccountantEmployees;
                         var salespeople = Company.SalesEmployees;
                         Console.WriteLine("Which accountant you'd like to generate the report for?");
+                        var a = 1;
                         accountants.ForEach(accountant => Console.WriteLine(accountant.Name));
 
                         var answer = Console.ReadLine();
                         if (answer == "Angela" || answer == "Oscar")
                         {
+                            Console.Clear();
                             var s = 1;
-                            var c = 1;
                             Console.WriteLine("Monthly Sales Report\n" +
                                 $"For: {answer}\n");
                             salespeople.ForEach(salesperson =>
                             {
-                                Console.WriteLine($"{s}. {salesperson.Name}\n" +
-                                    $"Clients:\n" +
-                                    $"{c}. ");
+                                Console.WriteLine($"\t{s}. {salesperson.Name}\n" +
+                                    $"\tClients:");
+                                salesperson.PrintClients();
+                                s++;
+
+                                Console.WriteLine($"\tTotal: ${salesperson.SumSales()}\n");
                             });
                         }
                         else
                         {
-                            Console.WriteLine("Please enter a valid accountant: Angela or Oscar");
+                            Console.WriteLine("Please enter a valid accountant selection:\n" +
+                                "Angela\n" +
+                                "Oscar\n");
                         }
+                        Program.BackToStart();
                         break;
                     }
                 case 3:
