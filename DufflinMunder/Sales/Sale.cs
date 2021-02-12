@@ -96,12 +96,30 @@ namespace DufflinMunder
             Program.BackToStart();
 
         }
-        public static void FindASale(int clientId)
+        public static void FindASale()
         {
+            Console.Write("To find a sale, please enter the unique client id number: ");
+            var id = Convert.ToInt32(Console.ReadLine());
+            var foundSales = new List<Sale>();
             foreach (var employee in Company.SalesEmployees)
             {
-                employee.AllSales.Find(sale => sale.ClientId == clientId);
+                foreach (var sale in employee.AllSales)
+                {
+                    if (sale.ClientId == id)
+                    {
+                        foundSales.Add(sale);
+                    }
+                }
             }
+            foreach (var foundSale in foundSales)
+            {
+                Console.WriteLine($"{foundSale.SalesAgent} sold {foundSale.Client} ${foundSale.SaleAmount} of product on a {foundSale.Recurring} basis recurring for {foundSale.TimeFrameInMonths} months");
+            }
+
+            Console.WriteLine();
+
+            Program.BackToStart();
         }
     }
 }
+

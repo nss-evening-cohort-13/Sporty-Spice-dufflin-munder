@@ -51,8 +51,7 @@ namespace DufflinMunder
                     break;
                 case 4:
                     {
-                        Console.Write("To find a sale, please enter the unique client id: ");
-                        var id = Console.ReadLine();
+                        Sale.FindASale();
                         break;
                     }
                 case 5:
