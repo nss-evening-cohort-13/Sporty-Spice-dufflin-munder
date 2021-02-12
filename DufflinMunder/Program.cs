@@ -50,8 +50,10 @@ namespace DufflinMunder
                     Company.addNewEmployee();
                     break;
                 case 4:
-                    Console.WriteLine("You have selected 'find a sale'");
-                    break;
+                    {
+                        Sale.FindASale();
+                        break;
+                    }
                 case 5:
                     Environment.Exit(0);
                     break;
