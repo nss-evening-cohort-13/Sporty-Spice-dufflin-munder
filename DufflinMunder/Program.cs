@@ -37,7 +37,17 @@ namespace DufflinMunder
                 "4. Find a Sale\n" +
                 "5. Exit");
 
-            int menuSelection = Convert.ToInt32(Console.ReadLine());
+            int menuSelection = 0;
+            
+            try
+            {
+                menuSelection = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine($"Please enter a number 1-5 to select an action. Please return to the main menu and try again.\n");
+                Program.BackToStart();
+            }
 
             switch (menuSelection)
             {
@@ -50,7 +60,6 @@ namespace DufflinMunder
                         var accountants = Company.AccountantEmployees;
                         var salespeople = Company.SalesEmployees;
                         Console.WriteLine("Which accountant would you like to generate the report for?");
-                        var a = 1;
                         accountants.ForEach(accountant => Console.WriteLine(accountant.Name));
 
                         var answer = Console.ReadLine();
