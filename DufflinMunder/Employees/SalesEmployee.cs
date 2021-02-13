@@ -27,10 +27,18 @@ namespace DufflinMunder.Employees
             {
                 clients.Add(sale.Client);
             });
-            foreach (var client in clients)
+
+            if (clients.Count == 0)
             {
-                Console.Write($"\t\t{c}. {client}\n");
-                c++;
+                Console.Write("\tThis salesperson has no clients.\n");
+            }
+            else
+            {
+                foreach (var client in clients)
+                {
+                    Console.Write($"\t{c}. {client}\n");
+                    c++;
+                }
             }
         }
 
