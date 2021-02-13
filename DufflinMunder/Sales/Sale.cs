@@ -52,30 +52,39 @@ namespace DufflinMunder
             Console.Write("Sale: $");
             var saleAmount = Convert.ToDouble(Console.ReadLine());
             Console.Write("Recurring (Monthly, Annually, or One-Time): ");
-            var recurringInput = Console.ReadLine();
-
-            if (recurringInput != "Monthly" && recurringInput != "Annually" && recurringInput != "One-Time")
-            {
-                Console.Write("Please enter a valid recurring value (Monthly, Annually, or One-Time): ");
-                recurringInput = Console.ReadLine();
-            }
+            var recurringInput = Console.ReadLine().ToLower();
 
             Recurring recurring = Recurring.OneTime;
 
-            switch (recurringInput)
+            if (recurringInput != "monthly" && recurringInput != "annually" && recurringInput != "one-time")
             {
-                case "Monthly":
-                    recurring = Recurring.Monthly;
-                    break;
-                case "Annually":
-                    recurring = Recurring.Annually;
-                    break;
-                case "One-Time":
-                    recurring = Recurring.OneTime;
-                    break;
-                default:
-                    break;
+                Console.Write("Please enter a valid recurring value or : ");
+                recurringInput = Console.ReadLine();
+            } 
+
+            if (recurringInput == "monthly" || recurringInput == "annually" || recurringInput == "one-time")
+            {
+                switch (recurringInput)
+                {
+                    case "monthly":
+                        recurring = Recurring.Monthly;
+                        break;
+                    case "annually":
+                        recurring = Recurring.Annually;
+                        break;
+                    case "one-time":
+                        recurring = Recurring.OneTime;
+                        break;
+                    default:
+                        break;
+                }
+            } 
+            else
+            {
+                Console.WriteLine("You did not enter a valid value. Please return to the main menu and try again.");
+                Program.BackToStart();
             }
+
 
             Console.Write("Time Frame (in months): ");
             int timeFrame = Convert.ToInt32(Console.ReadLine());
