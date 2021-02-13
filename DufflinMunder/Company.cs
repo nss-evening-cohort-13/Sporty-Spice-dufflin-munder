@@ -1,6 +1,7 @@
 ﻿using DufflinMunder.Employees;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DufflinMunder
@@ -15,16 +16,28 @@ namespace DufflinMunder
             Console.Clear();
             Console.Write("Enter Employee Name: ");
             var employeeName = Console.ReadLine();
+            employeeName = char.ToUpper(employeeName[0]) + employeeName.Substring(1);
             var employee = new SalesEmployee(employeeName, "Sales");
-            SalesEmployees.Add(employee);
-            Console.WriteLine($"\nWelcome to Dufflin Munder, {employeeName}!\n");
-            Console.WriteLine("Current Employee Roster:\n");
-            foreach (var salesEmployee in SalesEmployees)
+
+            if (SalesEmployees.Any(element => element.Name == employeeName))
             {
-                Console.WriteLine($"{salesEmployee.Name}, {salesEmployee.Department}");
+                Console.WriteLine("This employee already exists. Please return to the main menu and try again.\n");
+                Program.BackToStart();
+            } 
+            else
+            {
+                SalesEmployees.Add(employee);
+                Console.WriteLine($"\nWelcome to Dufflin Munder, {employeeName}!\n");
+                Console.WriteLine("Current Employee Roster:\n");
+                foreach (var salesEmployee in SalesEmployees)
+                {
+                    Console.WriteLine($"{salesEmployee.Name}, {salesEmployee.Department}");
+                }
+
+                Console.WriteLine();
+                Program.BackToStart();
             }
 
-            Program.BackToStart();
         }
 
     }
