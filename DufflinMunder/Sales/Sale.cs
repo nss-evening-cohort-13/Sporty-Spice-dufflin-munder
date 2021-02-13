@@ -38,19 +38,30 @@ namespace DufflinMunder
             {
                 Console.WriteLine($"{i + 1}. {Company.SalesEmployees[i].Name}");
             }
-
+            var selection = Console.ReadLine();
             try
             {
-                employeeSelection = Convert.ToInt32(Console.ReadLine());
+                employeeSelection = Convert.ToInt32(selection);
+                salesAgent = Company.SalesEmployees[employeeSelection - 1].Name;
             }
             catch (FormatException)
             {
-                Console.WriteLine($"Please enter a number 1-{Company.SalesEmployees.Count()} to select an employee. Please return to the main menu and try again.\n");
-                Program.BackToStart();
+                string employeeName = Convert.ToString(selection);
+                foreach (var employee in Company.SalesEmployees)
+                {
+                    if (employee.Name.ToLower() == employeeName.ToLower())
+                    {
+                        salesAgent = employeeName;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Please enter a number 1-{Company.SalesEmployees.Count()} to select an employee. Please return to the main menu and try again.\n");
+                        Program.BackToStart();
+                    }
+                }
             }
 
             Console.Clear();
-            salesAgent = Company.SalesEmployees[employeeSelection - 1].Name;
             Console.WriteLine($"Hi, {salesAgent}.\n");
 
             // Enter a Sale method begins
@@ -72,7 +83,7 @@ namespace DufflinMunder
                     if (completedSale.Client.ToLower() == client.ToLower())
                     {
                         clientId = completedSale.ClientId;
-                    }  
+                    }
                 }
             }
 
@@ -102,7 +113,7 @@ namespace DufflinMunder
             {
                 Console.Write("Please enter a valid recurring value: ");
                 recurringInput = Console.ReadLine().ToLower();
-            } 
+            }
 
             if (recurringInput == "monthly" || recurringInput == "annually" || recurringInput == "one-time")
             {
@@ -120,7 +131,7 @@ namespace DufflinMunder
                     default:
                         break;
                 }
-            } 
+            }
             else
             {
                 Console.WriteLine("You did not enter a valid value. Please return to the main menu and try again.\n");
