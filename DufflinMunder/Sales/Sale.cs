@@ -62,7 +62,8 @@ namespace DufflinMunder
             // User entry for client name
             Console.Write("Client: ");
             var client = Console.ReadLine();
-            int clientId = 0;
+            var random = new Random();
+            var clientId = random.Next(1000, 9999);
 
             foreach (var employee in Company.SalesEmployees)
             {
@@ -71,13 +72,7 @@ namespace DufflinMunder
                     if (completedSale.Client.ToLower() == client.ToLower())
                     {
                         clientId = completedSale.ClientId;
-                    }
-                    else
-                    {
-
-                        var random = new Random();
-                        clientId = random.Next(1000, 9999);
-                    }
+                    }  
                 }
             }
 
