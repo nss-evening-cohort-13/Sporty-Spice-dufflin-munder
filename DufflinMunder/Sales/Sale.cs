@@ -46,19 +46,17 @@ namespace DufflinMunder
             }
             catch (FormatException)
             {
-                string employeeName = Convert.ToString(selection);
-                foreach (var employee in Company.SalesEmployees)
+                string employeeName = selection;
+                if (Company.SalesEmployees.Any(employee => employee.Name.ToLower() == employeeName.ToLower()))
                 {
-                    if (employee.Name.ToLower() == employeeName.ToLower())
-                    {
-                        salesAgent = employeeName;
-                    }
-                    else
-                    {
-                        Console.WriteLine($"Please enter a number 1-{Company.SalesEmployees.Count()} to select an employee. Please return to the main menu and try again.\n");
-                        Program.BackToStart();
-                    }
+                    salesAgent = employeeName;
                 }
+                else
+                {
+                    Console.WriteLine($"Please enter a number 1-{Company.SalesEmployees.Count()} to select an employee. Please return to the main menu and try again.\n");
+                    Program.BackToStart();
+                }
+                
             }
 
             Console.Clear();
