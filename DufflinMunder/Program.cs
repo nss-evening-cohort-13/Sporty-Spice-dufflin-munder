@@ -45,6 +45,7 @@ namespace DufflinMunder
                     break;
                 case 2:
                     {
+                        Console.Clear();
                         var accountants = Company.AccountantEmployees;
                         var salespeople = Company.SalesEmployees;
                         Console.WriteLine("Which accountant would you like to generate the report for?");
