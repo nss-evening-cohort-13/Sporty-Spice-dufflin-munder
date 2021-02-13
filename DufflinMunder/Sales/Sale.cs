@@ -192,7 +192,7 @@ namespace DufflinMunder
                     {
                         foreach (var sale in employee.AllSales)
                         {
-                            if (sale.Client == clientName)
+                            if (sale.Client.ToLower() == clientName.ToLower())
                             {
                                 foundSales.Add(sale);
                             }
