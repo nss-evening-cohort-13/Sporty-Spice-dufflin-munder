@@ -49,7 +49,8 @@ namespace DufflinMunder
                 string employeeName = selection;
                 if (Company.SalesEmployees.Any(employee => employee.Name.ToLower() == employeeName.ToLower()))
                 {
-                    salesAgent = employeeName;
+
+                    salesAgent = char.ToUpper(employeeName[0]) + employeeName.Substring(1);
                 }
                 else
                 {
