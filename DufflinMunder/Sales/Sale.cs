@@ -45,11 +45,25 @@ namespace DufflinMunder
             Console.WriteLine($"Sales Agent: {salesAgent}");
             Console.Write("Client: ");
             var client = Console.ReadLine();
+            int clientId = 0;
 
+            foreach (var employee in Company.SalesEmployees)
+            {
+                foreach (var completedSale in employee.AllSales)
+                {
+                    if (completedSale.Client.ToLower() == client.ToLower())
+                    {
+                        clientId = completedSale.ClientId;
+                    }
+                    else
+                    {
 
+                        var random = new Random();
+                        clientId = random.Next(1000, 9999);
+                    }
+                }
+            }
 
-            var random = new Random();
-            var clientId = random.Next(1000, 9999);
             Console.WriteLine($"ClientID: {clientId}");
             Console.Write("Sale: $");
             var saleAmount = Convert.ToDouble(Console.ReadLine());
