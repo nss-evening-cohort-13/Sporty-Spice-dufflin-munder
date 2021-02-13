@@ -36,7 +36,17 @@ namespace DufflinMunder
                 "4. Find a Sale\n" +
                 "5. Exit");
 
-            int menuSelection = Convert.ToInt32(Console.ReadLine());
+            int menuSelection = 0;
+            
+            try
+            {
+                menuSelection = Convert.ToInt32(Console.ReadLine());
+            }
+            catch (FormatException)
+            {
+                Console.WriteLine($"Please enter a number 1-5 to select an action. Please return to the main menu and try again.\n");
+                Program.BackToStart();
+            }
 
             switch (menuSelection)
             {
