@@ -89,7 +89,7 @@ namespace DufflinMunder
             if (recurringInput != "monthly" && recurringInput != "annually" && recurringInput != "one-time")
             {
                 Console.Write("Please enter a valid recurring value: ");
-                recurringInput = Console.ReadLine();
+                recurringInput = Console.ReadLine().ToLower();
             } 
 
             if (recurringInput == "monthly" || recurringInput == "annually" || recurringInput == "one-time")
