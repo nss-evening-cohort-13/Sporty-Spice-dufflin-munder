@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using DufflinMunder.Employees;
 
 namespace DufflinMunder
@@ -53,12 +54,13 @@ namespace DufflinMunder
                         accountants.ForEach(accountant => Console.WriteLine(accountant.Name));
 
                         var answer = Console.ReadLine();
-                        if (answer == "Angela" || answer == "Oscar")
+                        var textInfo = new CultureInfo("en-US", false).TextInfo;
+                        if (answer.ToLower() == "angela" || answer.ToLower() == "oscar")
                         {
                             Console.Clear();
                             var s = 1;
                             Console.WriteLine("Monthly Sales Report\n" +
-                                $"For: {answer}\n");
+                                $"For: {textInfo.ToTitleCase(answer)}\n");
                             salespeople.ForEach(salesperson =>
                             {
                                 Console.WriteLine($"{s}. {salesperson.Name}\n" +
