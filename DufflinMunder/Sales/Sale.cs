@@ -136,7 +136,8 @@ namespace DufflinMunder
             var currentEmployee = Company.SalesEmployees.Find(employee => employee.Name == salesAgent);
             currentEmployee.AddSale(sale);
 
-            Console.WriteLine();
+            Console.WriteLine($"\nYour sale was added!\n");
+
             Program.BackToStart();
 
         }
