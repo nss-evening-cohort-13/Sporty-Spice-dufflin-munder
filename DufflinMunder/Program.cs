@@ -47,7 +47,7 @@ namespace DufflinMunder
                     {
                         var accountants = Company.AccountantEmployees;
                         var salespeople = Company.SalesEmployees;
-                        Console.WriteLine("Which accountant you'd like to generate the report for?");
+                        Console.WriteLine("Which accountant would you like to generate the report for?");
                         var a = 1;
                         accountants.ForEach(accountant => Console.WriteLine(accountant.Name));
 
@@ -60,12 +60,12 @@ namespace DufflinMunder
                                 $"For: {answer}\n");
                             salespeople.ForEach(salesperson =>
                             {
-                                Console.WriteLine($"\t{s}. {salesperson.Name}\n" +
-                                    $"\tClients:");
+                                Console.WriteLine($"{s}. {salesperson.Name}\n" +
+                                    $"   Clients:");
                                 salesperson.PrintClients();
                                 s++;
 
-                                Console.WriteLine($"\tTotal: ${salesperson.SumSales()}\n");
+                                Console.WriteLine($"Total: ${salesperson.SumSales()}\n");
                             });
                         }
                         else
