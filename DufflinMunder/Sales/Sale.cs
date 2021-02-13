@@ -28,6 +28,7 @@ namespace DufflinMunder
 
         public static void EnterASale()
         {
+            Console.Clear();
             // User entry for sales employee selection
             var salesAgent = "";
             int employeeSelection = 0;
@@ -48,6 +49,7 @@ namespace DufflinMunder
                 Program.BackToStart();
             }
 
+            Console.Clear();
             salesAgent = Company.SalesEmployees[employeeSelection - 1].Name;
             Console.WriteLine($"Hi, {salesAgent}.\n");
 
@@ -140,6 +142,7 @@ namespace DufflinMunder
         }
         public static void FindASale()
         {
+            Console.Clear();
             Console.Write("Would you like to search by client name or client ID? \n1. Client ID\n2. Client Name\n");
 
             var searchSelection = Console.ReadLine();
