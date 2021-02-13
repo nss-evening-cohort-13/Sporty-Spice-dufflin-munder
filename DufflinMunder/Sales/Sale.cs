@@ -97,57 +97,62 @@ namespace DufflinMunder
         {
             Console.Write("Would you like to search by client name or client ID? \n1. Client ID\n2. Client Name\n");
 
-            var searchSelection = Convert.ToInt32(Console.ReadLine());
-                var foundSales = new List<Sale>();
-            if (searchSelection == 1)
+            var searchSelection = Console.ReadLine();
+            var foundSales = new List<Sale>();
+            switch (searchSelection)
             {
-                Console.Write("Please enter client ID: ");
-                var id = Convert.ToInt32(Console.ReadLine());
-                foreach (var employee in Company.SalesEmployees)
-                {
-                    foreach (var sale in employee.AllSales)
+                case "1":
+                    Console.Write("Please enter client ID: ");
+                    var id = Convert.ToInt32(Console.ReadLine());
+                    foreach (var employee in Company.SalesEmployees)
                     {
-                        if (sale.ClientId == id)
+                        foreach (var sale in employee.AllSales)
                         {
-                            foundSales.Add(sale);
+                            if (sale.ClientId == id)
+                            {
+                                foundSales.Add(sale);
+                            }
                         }
                     }
-                }
-            }
-            else if (searchSelection == 2)
-            {
-                Console.Write("Please enter client name: ");
-                var clientName = Console.ReadLine();
-                foreach (var employee in Company.SalesEmployees)
-                {
-                    foreach (var sale in employee.AllSales)
+                    break;
+                case "2":
+                    Console.Write("Please enter client name: ");
+                    var clientName = Console.ReadLine();
+                    foreach (var employee in Company.SalesEmployees)
                     {
-                        if (sale.Client == clientName)
+                        foreach (var sale in employee.AllSales)
                         {
-                            foundSales.Add(sale);
+                            if (sale.Client == clientName)
+                            {
+                                foundSales.Add(sale);
+                            }
                         }
                     }
-                }
+                    break;
+                default:
+                    Console.WriteLine("Unavailable option, would you like to try again or go back to the main menu?: \n1.Try Again \n2.Main Menu");
+                    var selection = Convert.ToInt32(Console.ReadLine());
+                    if (selection == 1)
+                    {
+                        Console.Clear();
+                        FindASale();
+                    }
+                    else
+                    {
+                        Program.BackToStart();
+                    }
+                    break;
             }
-            else
-            {
-                Console.WriteLine("Unavailable option, would you like to try again or go back to the main menu?: \n1.Try Again \n2Main Menu");
-                var selection = Convert.ToInt32(Console.ReadLine());
-                if (selection == 1)
-                {
-                    EnterASale();
-                }
-                else
-                {
-                    Program.BackToStart();
-                }
-            }
+
 
             foreach (var foundSale in foundSales)
             {
                 Console.WriteLine($"{foundSale.SalesAgent} sold {foundSale.Client} ${foundSale.SaleAmount} of product on a {foundSale.Recurring} basis recurring for {foundSale.TimeFrameInMonths} months");
             }
-
+            if (foundSales.Count == 0)
+            {
+                Console.WriteLine("\nNo sales found for that client");
+            }
             Console.WriteLine();
 
             Program.BackToStart();
